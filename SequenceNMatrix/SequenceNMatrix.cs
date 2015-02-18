@@ -15,11 +15,7 @@ using System.Threading.Tasks;
                                            |  ha 	    fifi 	ho 	    hi  |   ha, ha, ha     |   |   s 	qq 	s    |  s, s, s |
                                            |  fo 	    ha 	    hi 	    xx  |                  |   |   pp 	pp 	s    |          |
                                            | xxx 	    ho 	    ha 	    xx	|                  |   |   pp 	qq 	s    |          |
-                                            
-                                            
-                                            
-                                            	
-                                */
+                                 */
 
 namespace SequenceNMatrix
 {
@@ -76,7 +72,7 @@ namespace SequenceNMatrix
             {
                 for (int col = 0; col < numberOfCols - 1; col++)
                 {
-                    //Checking is the current row elements is equal to the next row element
+                    //Checking are the current row elements equal to the next row element
                     if (matrix[row, col] == matrix[row, col + 1])
                     {
                         tempRowSequence++;
@@ -91,7 +87,7 @@ namespace SequenceNMatrix
                         }
                     }
 
-                    //Checking is the current column elements is equal to the next column element
+                    //Checking are the current column elements equal to the next column element
                     if (matrix[row,col] == matrix[row + 1, col])
                     {
                         tempColSequence++;
@@ -106,7 +102,7 @@ namespace SequenceNMatrix
                         }
                     }
 
-                    //Checking is the current elements is equal to the next element by diagonal
+                    //Checking are the current elements equal to the next element by diagonal
                     if (matrix[row,col] == matrix[row + 1, col + 1])
                     {
                         tempDiagonalSequence++;
