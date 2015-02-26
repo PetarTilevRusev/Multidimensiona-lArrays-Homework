@@ -27,7 +27,7 @@ namespace SequenceNMatrix
         public static int numberOfCols;
         public static string[,] matrix;
 
-        //Value holders
+        
         public static int bestSequence = 1;
         public static int bestRow = 0;
         public static int bestCol = 0;
@@ -38,8 +38,10 @@ namespace SequenceNMatrix
         {
             FillingTheMatrix();
             CalculatingTheBiggestSequence();
+            LastRowAndCol();
             PrintingTheMatrix();
         }
+
 
         
         static void FillingTheMatrix()
@@ -115,6 +117,41 @@ namespace SequenceNMatrix
                             bestRow = row;
                             bestCol = col;
                         }
+                    }
+                }
+            }
+        }
+
+
+        private static void LastRowAndCol()
+        {
+            int tempRowSequence = 1;
+            int tempColSequence = 1;
+
+            for (int col = 0; col < numberOfCols - 1; col++)
+            {
+                if (matrix[numberOfRows - 1, col] == matrix[numberOfRows - 1, col + 1])
+                {
+                    tempRowSequence++;
+                    if (tempRowSequence >= bestSequence)
+                    {
+                        bestSequence = tempRowSequence;
+                        bestCol = col;
+                        bestRow = numberOfRows - 1;
+                    }
+                }
+            }
+
+            for (int row = 0; row < numberOfRows - 1; row++)
+            {
+                if (matrix[row, numberOfCols -1] == matrix[row + 1, numberOfCols - 1])
+                {
+                    tempRowSequence++;
+                    if (tempRowSequence >= bestSequence)
+                    {
+                        bestSequence = tempRowSequence;
+                        bestCol = numberOfCols - 1;
+                        bestRow = row;
                     }
                 }
             }
